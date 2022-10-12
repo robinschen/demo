@@ -7,8 +7,8 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/robinschen/demo/pkg/logger"
 	"github.com/spf13/cobra"
+	"github.com/wonderivan/logger"
 )
 
 // rootCmd represents the base command when called without any subcommands
@@ -54,7 +54,7 @@ func init() {
 func initConfig() {
 	// find home dir
 	home := GetUserHomeDir()
-	logFile := fmt.Sprint("#{home}/.demo/demo.log")
+	logFile := fmt.Sprintf("%s/.demo/demo.log", home)
 
 	if !FileExist(home + "/.demo") {
 		err := os.Mkdir(home+"/.demo", os.ModePerm)
